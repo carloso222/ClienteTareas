@@ -1,0 +1,23 @@
+.lista {
+  width: 100%;
+}
+
+.elemento {
+  padding: 9px 12px;
+  font-size: 19px;
+  cursor: pointer;
+}
+
+.elemento:nth-child(even) {
+  background-color: #a9d4e2;
+}
+
+.elemento:nth-child(odd) {
+  background-color: #5eb1cc;
+}
+
+.elemento:hover,
+.elemento.seleccionado {
+  background-color: #4169e1;
+  color: white;
+}

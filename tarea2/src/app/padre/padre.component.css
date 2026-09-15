@@ -1,0 +1,11 @@
+h2 {
+  font-size: 36px;
+  margin: 10px 0 35px;
+}
+
+.contenedor {
+  display: flex;
+  width: 95%;
+  margin: 0 auto;
+  gap: 30px;
+}
