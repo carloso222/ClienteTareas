@@ -1,0 +1,14 @@
+<h2>Libros</h2>
+
+<div class="contenedor">
+  <app-panel-izquierdo
+    [elementos]="elementos"
+    [seleccionado]="seleccionado"
+    (elementoSeleccionado)="seleccionarElemento($event)">
+  </app-panel-izquierdo>
+
+  <app-panel-derecho
+    [seleccionado]="seleccionado"
+    (limpiar)="limpiarSeleccion()">
+  </app-panel-derecho>
+</div>

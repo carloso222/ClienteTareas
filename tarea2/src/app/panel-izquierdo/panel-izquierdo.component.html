@@ -1,0 +1,9 @@
+<div class="lista">
+  <div
+    *ngFor="let elemento of elementos"
+    class="elemento"
+    [class.seleccionado]="elemento === seleccionado"
+    (click)="seleccionar(elemento)">
+    {{ elemento }}
+  </div>
+</div>

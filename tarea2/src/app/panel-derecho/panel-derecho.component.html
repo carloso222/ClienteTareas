@@ -1,0 +1,12 @@
+<div class="detalles">
+  <ng-container *ngIf="seleccionado; else sinSeleccion">
+    <p class="etiqueta">Título:</p>
+    <p class="titulo">{{ seleccionado }}</p>
+
+    <button (click)="limpiarSeleccion()">Limpiar</button>
+  </ng-container>
+
+  <ng-template #sinSeleccion>
+    <p class="mensaje">No hay ningún elemento seleccionado</p>
+  </ng-template>
+</div>
