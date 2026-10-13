@@ -1,0 +1,92 @@
+<section class="catalog">
+  <div class="catalog-header">
+    <div>
+      <h1>Explorar películas</h1>
+      <p>Descubre grandes historias y guarda tus favoritas.</p>
+    </div>
+  </div>
+
+  <form class="filters" [formGroup]="filterForm">
+    <div class="filter-field">
+      <label for="title">Título</label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        placeholder="Buscar película..."
+      />
+    </div>
+
+    <div class="filter-field">
+      <label for="director">Director</label>
+      <input
+        id="director"
+        type="text"
+        formControlName="director"
+        placeholder="Ej. Nolan"
+      />
+    </div>
+
+    <div class="filter-field">
+      <label for="producer">Productor</label>
+      <input
+        id="producer"
+        type="text"
+        formControlName="producer"
+        placeholder="Buscar productor..."
+      />
+    </div>
+
+    <div class="filter-field">
+      <label for="genre">Género</label>
+      <input
+        id="genre"
+        type="text"
+        formControlName="genre"
+        placeholder="Ej. Drama"
+      />
+    </div>
+
+    <div class="filter-field">
+      <label for="year">Año</label>
+      <input
+        id="year"
+        type="text"
+        inputmode="numeric"
+        formControlName="year"
+        placeholder="Ej. 2014"
+      />
+    </div>
+
+    <button type="button" class="clear-button" (click)="clearFilters()">
+      Limpiar filtros
+    </button>
+  </form>
+
+  <div class="results-header">
+    <h2>Catálogo</h2>
+    <span>
+      {{ filteredMovies().length }} películas encontradas
+    </span>
+  </div>
+
+  @if (filteredMovies().length > 0) {
+    <div class="movies-grid">
+      @for (movie of filteredMovies(); track movie.id) {
+        <app-movie-card
+          [movie]="movie"
+          [isFavorite]="favoritesService.isFavorite(movie.id)"
+          (favoriteToggle)="toggleFavorite($event)"
+        />
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <h2>No encontramos películas</h2>
+      <p>Prueba cambiando los criterios de búsqueda.</p>
+      <button type="button" class="clear-button" (click)="clearFilters()">
+        Mostrar todas
+      </button>
+    </div>
+  }
+</section>

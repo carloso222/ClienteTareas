@@ -1,0 +1,138 @@
+.catalog {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  color: #fff;
+}
+
+.catalog-header {
+  margin-bottom: 30px;
+
+  h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    margin: 0 0 10px;
+  }
+
+  p {
+    color: #aaaabc;
+    margin: 0;
+  }
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  padding: 24px;
+  margin-bottom: 35px;
+  background: #1c1c2b;
+  border: 1px solid #303044;
+  border-radius: 14px;
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    color: #d4d4df;
+    font-size: 14px;
+  }
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background: #11111b;
+    color: white;
+    border: 1px solid #424256;
+    border-radius: 8px;
+    font-size: 14px;
+
+    &:focus {
+      outline: 2px solid #f97373;
+      outline-offset: 1px;
+    }
+  }
+}
+
+.clear-button {
+  align-self: end;
+  padding: 13px 18px;
+  background: #f97373;
+  color: #15151f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 24px;
+
+  h2 {
+    margin: 0;
+  }
+
+  span {
+    color: #aaaabc;
+  }
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #1c1c2b;
+  border-radius: 14px;
+
+  p {
+    color: #aaaabc;
+  }
+}
+
+@media (max-width: 1000px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .catalog {
+    padding: 24px 16px;
+  }
+
+  .movies-grid,
+  .filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filters {
+    padding: 16px;
+  }
+
+  .filter-field,
+  .clear-button {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 420px) {
+  .movies-grid {
+    grid-template-columns: 1fr;
+  }
+}
