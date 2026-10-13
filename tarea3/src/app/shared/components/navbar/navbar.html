@@ -1,0 +1,27 @@
+<header class="navbar">
+  <nav class="nav-content" aria-label="Navegación principal">
+    <a routerLink="/" class="logo">
+      <span>🎬</span> CineVault
+    </a>
+
+    <div class="nav-links">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Catálogo
+      </a>
+
+      <a
+        routerLink="/favorites"
+        routerLinkActive="active"
+      >
+        ♡ Mis favoritos
+        <span class="count">
+          {{ favoritesService.favoritesCount() }}
+        </span>
+      </a>
+    </div>
+  </nav>
+</header>

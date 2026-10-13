@@ -1,0 +1,34 @@
+<article class="movie-card">
+  <a class="poster-link" [routerLink]="['/movies', movie.id]">
+    <img
+      [src]="movie.posterUrl"
+      [alt]="'Póster de ' + movie.title"
+      loading="lazy"
+    />
+  </a>
+
+  <div class="movie-info">
+    <div class="movie-meta">
+      <span>{{ movie.genre }}</span>
+      <span>{{ movie.year }}</span>
+    </div>
+
+    <h3>
+      <a [routerLink]="['/movies', movie.id]">
+        {{ movie.title }}
+      </a>
+    </h3>
+
+    <p>Director: {{ movie.director }}</p>
+
+    <button
+      type="button"
+      class="favorite-button"
+      [class.active]="isFavorite"
+      [attr.aria-pressed]="isFavorite"
+      (click)="onToggleFavorite()"
+    >
+      {{ isFavorite ? '♥ Quitar de favoritos' : '♡ Agregar a favoritos' }}
+    </button>
+  </div>
+</article>
